@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Movies"
+        android:icon="@drawable/popcornicon"
+        android:id="@+id/moviesTab"/>
+    <item android:title="Me"
+        android:icon="@drawable/account"
+        android:id="@+id/accountTab"/>
+    <item android:title="Favorites"
+        android:icon="@drawable/star"
+        android:id="@+id/favoritesTab"/>
+</menu>

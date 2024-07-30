@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="bgColor">#1B1032</color>
+    <color name="secondaryBgColor">#694F8E</color>
+    <color name="mainBtnColor">#ED587C</color>
+    <color name="textInputColor">#E8CDD4</color>
+</resources>

@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">CineExplorer</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="login_hint">Login</string>
+    <string name="register_hint">Register</string>
+    <string name="name_hint">Name</string>
+    <string name="last_name_hint">Last name</string>
+    <string name="birthday_hint">Birthday</string>
+    <string name="explore_hint">Explore</string>
+    <string name="explore_label">¡Welcome to Cine Explorer!</string>
+
+    <string name="nodata_hint">No data</string>
+    <string name="overview_hint">Overview</string>
+    <string name="date_hint">Release date</string>
+    <string name="rating_hint">Rating</string>
+    <string name="language_hint">Language</string>
+    <string name="adults_hint">Adults Only</string>
+
+    <string name="trending_movies_hint">Trending movies</string>
+    <string name="favorite_movies_hint">Favorite movies</string>
+    <string name="logout_hint">Logout</string>
+</resources>
