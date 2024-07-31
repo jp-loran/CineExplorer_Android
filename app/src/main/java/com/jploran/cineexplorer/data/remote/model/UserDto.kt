@@ -13,4 +13,6 @@ data class UserDto(
     var email:String? = null,
     @SerializedName("birthday")
     var birthday:String? = null,
+    @SerializedName("imageUrl")
+    var imageUrl:String? = null,
 )

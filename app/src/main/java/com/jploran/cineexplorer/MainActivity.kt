@@ -1,12 +1,16 @@
 package com.jploran.cineexplorer
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.NavController
-import androidx.navigation.NavHostController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.snackbar.Snackbar
 import com.jploran.cineexplorer.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -39,15 +43,27 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.moviesTab -> {
-                    navController.navigate(R.id.moviesFragment)
+                    if (isInternetAvailable()) {
+                        navController.navigate(R.id.moviesFragment)
+                    } else {
+                        showToast("No internet connection")
+                    }
                     true
                 }
                 R.id.accountTab -> {
-                    navController.navigate(R.id.accountFragment)
+                    if (isInternetAvailable()) {
+                        navController.navigate(R.id.accountFragment)
+                    } else {
+                        showToast("No internet connection")
+                    }
                     true
                 }
                 R.id.favoritesTab -> {
-                    navController.navigate(R.id.favoriteMoviesFragment)
+                    if (isInternetAvailable()) {
+                        navController.navigate(R.id.favoriteMoviesFragment)
+                    } else {
+                        showToast("No internet connection")
+                    }
                     true
                 }
                 else -> false
@@ -56,6 +72,25 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    private fun isInternetAvailable(): Boolean {
+        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            val network = connectivityManager.activeNetwork ?: return false
+            val activeNetwork = connectivityManager.getNetworkCapabilities(network) ?: return false
+            return when {
+                activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
+                activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> true
+                activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> true
+                else -> false
+            }
+        } else {
+            val networkInfo = connectivityManager.activeNetworkInfo ?: return false
+            return networkInfo.isConnected
+        }
+    }
 
+    private fun showToast(message: String) {
+        Snackbar.make(binding.root, message, Snackbar.LENGTH_SHORT).show()
+    }
 }
 
