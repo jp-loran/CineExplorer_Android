@@ -22,7 +22,7 @@ data class FavoriteMovieDto(
     var overview:String?=null,
 
     @SerializedName("adult")
-    var adult:String?=null,
+    var adult:Boolean?=false,
 
     @SerializedName("language")
     var language:String?=null,

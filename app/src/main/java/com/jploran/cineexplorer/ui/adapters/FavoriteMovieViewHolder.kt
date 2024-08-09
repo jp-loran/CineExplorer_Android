@@ -12,7 +12,7 @@ class FavoriteMovieViewHolder(private var binding: FavoriteMovieElementBinding) 
         binding.tvTitle.text = movie.title
         binding.tvVoteAverage.text = "$formattedVoteAverage/10"
         binding.tvLanguage.text = "LANG: ${movie.language?.uppercase()}"
-        binding.tvAdults.text = if (movie.adult.toBoolean()) "ADULTS: YES" else "ADULTS: NO"
+        binding.tvAdults.text = if (movie.adult == true) "ADULTS: YES" else "ADULTS: NO"
     }
 
 }
